@@ -5,6 +5,8 @@ public class Main {
         task3();
         task4();
         task5();
+        task6();
+        task7();
     }
 
     public static void task1() {
@@ -112,5 +114,63 @@ public class Main {
             default:
                 System.out.println("Такого времени года не существует.");
         }
+        System.out.println("------------------------------------------------");
+        System.out.println();
+    }
+
+    public static void task6() {
+        int age = 23;
+        int salary = 58_000;
+        int creditCap = 0;
+
+        System.out.println("Решение задания 6.");
+        if (age >= 23) {
+            creditCap = salary * 3;
+        } else {
+            creditCap = salary * 2;
+        }
+
+        if (salary >= 50_000) {
+            creditCap *= 1.2;
+        } else if (salary >= 80_000) {
+            creditCap *= 1.5;
+        }
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditCap + " рублей.");
+        System.out.println("------------------------------------------------");
+        System.out.println();
+    }
+
+    public static void task7() {
+        int age = 23;
+        int salary = 90_000;
+        int wantedSum = 330_000;
+
+        double basicRate = 0.1;
+        int creditTermMonth = 12;
+        double monthlyPaymentMax = salary * 0.5;
+
+        if (age < 23) {
+            basicRate += 0.01;
+        } else if (age >= 23 && age < 30) {
+            basicRate += 0.005;
+        }
+        if (salary > 80_000) {
+            basicRate -= 0.07;
+        }
+
+        System.out.println("Решение задания 7.");
+
+        double monthlyPayment = wantedSum * (1 + basicRate) / 12;
+
+        if (monthlyPayment > monthlyPaymentMax) {
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + (int) monthlyPaymentMax + " рублей. " +
+                    "Платеж по кредиту " + monthlyPayment + " рублей. Отказано.");
+        } else {
+            System.out.println("Максимальный платеж при ЗП " + salary + " равен " + (int) monthlyPaymentMax + " рублей. " +
+                    "Платеж по кредиту " + monthlyPayment + " рублей. Одобрено.");
+        }
+
+        System.out.println("------------------------------------------------");
+        System.out.println();
     }
 }
